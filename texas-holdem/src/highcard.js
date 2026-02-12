@@ -35,5 +35,14 @@ function countRanks(ranks){
   return map;
 }
 
+function isStraight(ranks){
+  const uniq=[...new Set(ranks)].sort((a,b)=>b-a);
+  if(uniq[0]===14) uniq.push(1);
+  for(let i=0;i<=uniq.length-5;i++){
+    if(uniq[i]-uniq[i+4]===4) return uniq[i]===5?5:uniq[i];
+  }
+  return null;
+}
 
-module.exports = { evaluate5, countRanks };
+
+module.exports = { evaluate5, countRanks, isStraight };
