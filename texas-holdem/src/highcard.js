@@ -55,4 +55,10 @@ if(groups[0].count===3 && groups[1].count===2){
   return {category:3, tiebreak:[groups[0].rank,groups[1].rank], cards};
 }
 
+if(groups[0].count===4){
+  const kicker = groups.find(g=>g.count===1).rank;
+  return {category:2, tiebreak:[groups[0].rank,kicker], cards};
+}
+
+
 module.exports = { evaluate5, countRanks, isStraight };
