@@ -13,6 +13,13 @@ if(groups[0].count === 2){
   return {category:8, tiebreak:[groups[0].rank,...kickers], cards};
 }
 
+if(groups[0].count===2 && groups[1].count===2){
+  const high = Math.max(groups[0].rank, groups[1].rank);
+  const low = Math.min(groups[0].rank, groups[1].rank);
+  const kicker = groups.find(g=>g.count===1).rank;
+  return {category:7, tiebreak:[high,low,kicker], cards};
+}
+
   return { category:9, tiebreak:ranks, cards };
 }
 
