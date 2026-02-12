@@ -15,3 +15,9 @@ test('Two pair AA KK', () => {
   expect(h.tiebreak).toEqual([14,13,2]);
 });
 
+test('Three of a kind', ()=>{
+  const h = evaluate5(['AS','AD','AH','KC','2D'].map(Card.from));
+  expect(h.category).toBe(6);
+});
+
+

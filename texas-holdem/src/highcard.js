@@ -20,6 +20,12 @@ if(groups[0].count===2 && groups[1].count===2){
   return {category:7, tiebreak:[high,low,kicker], cards};
 }
 
+if(groups[0].count===3){
+  const kickers = groups.filter(g=>g.count===1).map(g=>g.rank).sort((a,b)=>b-a);
+  return {category:6, tiebreak:[groups[0].rank,...kickers], cards};
+}
+
+
   return { category:9, tiebreak:ranks, cards };
 }
 
