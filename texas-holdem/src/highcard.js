@@ -44,5 +44,11 @@ function isStraight(ranks){
   return null;
 }
 
+const suits = cards.map(c=>c.suit);
+const flushSuit = suits.find(s=>suits.filter(x=>x===s).length>=5);
+
+if(flushSuit){
+  return {category:4, tiebreak:ranks.sort((a,b)=>b-a), cards};
+}
 
 module.exports = { evaluate5, countRanks, isStraight };
