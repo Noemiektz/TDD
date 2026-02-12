@@ -51,4 +51,8 @@ if(flushSuit){
   return {category:4, tiebreak:ranks.sort((a,b)=>b-a), cards};
 }
 
+if(groups[0].count===3 && groups[1].count===2){
+  return {category:3, tiebreak:[groups[0].rank,groups[1].rank], cards};
+}
+
 module.exports = { evaluate5, countRanks, isStraight };
